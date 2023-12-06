@@ -19,6 +19,19 @@ RIPPING | Waiting for ripping to complete
 COMPLETE | Ripping complete, eject disc
 NONE | Script can't determine the current state
 
+# Script Notes
+The script assumes MakeMKV is installed at `"C:\Program Files (x86)\MakeMKV\makemkv.exe"`. Adjust this if needed.
+
+In `MakeMKVManager.ahk`, in the `EJECTED` function, I have it set to beep at me every second once the disc is ejected. Edit that if you don't want the beeping.
+
+I'm using a drive with a disc tray that pops out and stays out until I push in a new disc. I haven't tested this script using a drive without a tray. I'm not sure if the ejection state will act differently with those types of drives.
+
+## MakeMKV Settings
+In MakeMKV, go to View > Preferences > Video to set the "Default destination" to use "SemiAuto" and select the folder you'd like your rips to go to. Also set the "Minimum title length" so you don't get all the little 1-5 minute video transitions, ads, and misc behind-the-scenes stuff (unless you want all that). I usually have it set to 900 seconds (15 mins) unless I'm ripping a kids show that has episodes with a duration less than that.
+
+## Converting for Plex Server
+I use Handbrake to convert the `.mkv` files to a usable `.mp4` file format that works nicely with Plex Server.
+
 # The Process
 If MakeMKV isn't open, the script will try to open it. Once the MakeMKV window is available, the script will activate it and be ready further actions.
 
@@ -35,16 +48,3 @@ MakeMKV displays the text "Operation successfully completed" once a disc is full
 MakeMKV displays the text "Saving all titles to MKV files" while it rips a disc. This image triggers the RIPPING state and the script waits for it to complete.
 
 MakeMKV displays the text "Copy complete." once ripping is done. This image triggers the COMPLETE state and the script ejects the disc. Once the disc is ejected, the cycle loops back up to the EJECTED state and starts over.
-
-# Script Notes
-The script assumes MakeMKV is installed at `"C:\Program Files (x86)\MakeMKV\makemkv.exe"`. Adjust this if needed.
-
-In `MakeMKVManager.ahk`, in the `EJECTED` function, I have it set to beep at me every second once the disc is ejected. Edit that if you don't want the beeping.
-
-I'm using a drive with a disc tray that pops out and stays out until I push in a new disc. I haven't tested this script using a drive without a tray. I'm not sure if the ejection state will act differently with those types of drives.
-
-## MakeMKV Settings
-In MakeMKV, go to View > Preferences > Video to set the "Default destination" to use "SemiAuto" and select the folder you'd like your rips to go to. Also set the "Minimum title length" so you don't get all the little 1-5 minute video transitions, ads, and misc behind-the-scenes stuff (unless you want all that). I usually have it set to 900 seconds (15 mins) unless I'm ripping a kids show that has episodes with a duration less than that.
-
-## Converting for Plex Server
-I use Handbrake to convert the `.mkv` files to a usable `.mp4` file format that works nicely with Plex Server.
