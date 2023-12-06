@@ -1,6 +1,9 @@
 # MakeMKV-AHK-Automation
 An AutoHotKey script for automating all the clicking for mass ripping DVDs using MakeMKV
 
+# Installation
+Clone this repo or download and extract the ZIP. Make sure you have AutoHotKey v1.x installed. Execute the `RunAutoRipper.ahk` script to start auto ripping.
+
 # The overall idea
 This script checks to see what visual elements are being displayed in order to determine what state the disc ripping process is in. Based on the current state, the script will click certain buttons in order to progress the ripping process. Ultimately, once the disc is ripped, the system will eject the disc and wait for the next one.
 
