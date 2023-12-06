@@ -8,14 +8,16 @@ This script checks to see what visual elements are being displayed in order to d
 If errors occur during the ripping process because the disc is dirty/bad, alert messages might pop up. The script will not progress further until these errors are aknowledged.
 
 # Possible states this MakeMKV script is in
- - EJECTED
- - SPINNING
- - READY_TO_LOAD
- - LOADING
- - READY
- - RIPPING
- - COMPLETE
- - NONE (script can't determine the current state)
+State | Description
+-|-
+EJECTED | Waiting for a disc
+SPINNING | Waiting for inserted disc to become available
+READY_TO_LOAD | Disc is ready, script clicks button to load the disc
+LOADING | Waiting for disc to load
+READY | Disc is ready for ripping, add number to disc name, start ripping
+RIPPING | Waiting for ripping to complete
+COMPLETE | Ripping complete, eject disc
+NONE | Script can't determine the current state
 
 # The Process
 If MakeMKV isn't open, the script will try to open it. Once the MakeMKV window is available, the script will activate it and be ready further actions.
